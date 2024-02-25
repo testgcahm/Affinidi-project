@@ -1,6 +1,6 @@
-import "@/styles/globals.css";
-import { UserContext, UserDataProps, UserDataValues } from "@/utils/UserContext";
-import { useAuthentication } from "@/utils/affinidi/hooks/use-authentication";
+import "../styles/globals.css";
+import { UserContext, UserDataProps, UserDataValues } from "@/src/utils/UserContext";
+import { useAuthentication } from "@/src/utils/affinidi/hooks/use-authentication";
 import type { AppProps } from "next/app";
 import { useEffect, useState } from "react";
 
