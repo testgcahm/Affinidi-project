@@ -1,9 +1,8 @@
 import React, { useState, useContext } from 'react';
 import { UserContext } from '../utils/UserContext';
-import Link from 'next/link'; // Import Link from next/link
 import { useRouter } from 'next/router'; // Import useRouter from next/router
-import ConfirmationModal from './ConfirmationModal';
-import './Checkout.css';
+import ConfirmationModal from './ConfirmationModel';
+import { useCartContext } from 'src/utils/CartContext';
 
 interface UserData {
   firstName: string;
@@ -16,11 +15,10 @@ interface UserData {
   country: string;
 }
 
-interface Props {
-  clearCart: () => void;
-}
+const Checkout = () => {
 
-const Checkout: React.FC<Props> = ({ clearCart }) => {
+  const { clearCart } = useCartContext();
+
   const [userData, setUserData] = useState<UserData>({
     firstName: '',
     lastName: '', 

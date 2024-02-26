@@ -1,9 +1,9 @@
 import { use } from "next-api-middleware";
 import type { NextApiRequest, NextApiResponse } from "next";
-import { UserInfo } from "@/utils/affinidi/types/types";
-import { auth } from "@/utils/affinidi/auth/auth";
-import { allowedHttpMethods } from "@/utils/affinidi/middlewares/allowed-http-methods";
-import { errorHandler } from "@/utils/affinidi/middlewares/error-handler";
+import { UserInfo } from "src/utils/affinidi/types/types";
+import { auth } from "src/utils/affinidi/auth/auth";
+import { allowedHttpMethods } from "src/utils/affinidi/middlewares/allowed-http-methods";
+import { errorHandler } from "src/utils/affinidi/middlewares/error-handler";
 
 type HandlerResponse = {
   userId: string;

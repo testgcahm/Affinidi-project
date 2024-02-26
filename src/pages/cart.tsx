@@ -1,19 +1,11 @@
 import React from 'react';
 import Link from 'next/link'; // Import Link from next/link
+import { useCartContext } from 'src/utils/CartContext';
 
-interface CartItem {
-  id: number;
-  name: string;
-  quantity: number;
-  price: number;
-  imageUrl: string;
-}
+const Cart = () => {
 
-interface Props {
-  cartItems: CartItem[];
-}
+  const { cartItems } = useCartContext();
 
-const Cart: React.FC<Props> = ({ cartItems }) => {
   const getTotalPrice = () => {
     return cartItems.reduce((total, item) => total + item.quantity * item.price, 0);
   };
@@ -53,9 +45,7 @@ const Cart: React.FC<Props> = ({ cartItems }) => {
         </tfoot>
       </table>
       <Link href="/checkout"> {/* Use Link component for navigation */}
-        <a>
-          <button disabled={cartItems.length === 0}>Go to Checkout</button>
-        </a>
+        <button disabled={cartItems.length === 0}>Go to Checkout</button>
       </Link>
     </div>
   );

@@ -1,8 +1,9 @@
 import "../styles/globals.css";
-import { UserContext, UserDataProps, UserDataValues } from "@/src/utils/UserContext";
-import { useAuthentication } from "@/src/utils/affinidi/hooks/use-authentication";
 import type { AppProps } from "next/app";
 import { useEffect, useState } from "react";
+import { CartProvider } from "src/utils/CartContext";
+import { UserDataProps, UserDataValues, UserContext } from "src/utils/UserContext";
+import { useAuthentication } from "src/utils/affinidi/hooks/use-authentication";
 
 export default function App({ Component, pageProps }: AppProps) {
 
@@ -25,7 +26,9 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <UserContext.Provider value={[userData, setUserData]}>
-        <Component {...pageProps} />
+        <CartProvider>
+          <Component {...pageProps} />
+        </CartProvider>
       </UserContext.Provider>
     </>
   );
